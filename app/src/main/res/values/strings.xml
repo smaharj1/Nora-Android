@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Nora</string>
+    <string name="title_activity_photo_list">PhotoList</string>
+</resources>
