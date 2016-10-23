@@ -70,8 +70,8 @@ public class PhotoList extends AppCompatActivity {
                         //Toast.makeText(getApplicationContext(), images, Toast.LENGTH_LONG);
 
                         // Testing
-                        String[] imgs = new String[5];
-                        for (int i = 0; i < 5; i++) {
+                        String[] imgs = new String[images.size()];
+                        for (int i = 0; i < images.size(); i++) {
 
                             imgs[i] = images.get(i).substring(1,images.get(i).length()-1);
 //                            Log.v("THIS: ", imgs[i]);
