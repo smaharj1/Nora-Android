@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.nora.IntroPageActivity"
+    tools:context="com.nora.controller.IntroPageActivity"
     android:background="@android:color/background_light">
 
     <ImageView
@@ -23,21 +23,22 @@
         android:onClick="activateNora" />
 
     <TextView
-        android:text="I'm Nora."
+        android:text="Nora."
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
-        android:textSize="36sp"
-        android:textAlignment="center"
-        android:textColor="#1fbf32"
         android:layout_above="@+id/imageView"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="144dp" />
+        android:layout_marginBottom="144dp"
+        android:textSize="50sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/holo_green_dark"
+        android:textAlignment="center" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hi! "
+        android:text="Hi, I'm"
         android:textSize="36sp"
         android:lineSpacingExtra="24sp"
         android:textAlignment="center"

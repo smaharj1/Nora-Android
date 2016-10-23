@@ -1,13 +1,11 @@
-package com.nora;
+package com.nora.controller;
 
 import android.content.Intent;
-import android.provider.ContactsContract;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
+
+import com.nora.R;
 
 public class IntroPageActivity extends AppCompatActivity {
 
