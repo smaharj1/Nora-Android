@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nora.R;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -44,8 +45,13 @@ public class MySimpleArrayAdapter extends ArrayAdapter<String> {
         //if (s.startsWith("iPhone")) {
 
         //imageView.setImageResource(R.mipmap.go);
-        new ImageTask((ImageView) rowView.findViewById(R.id.picture))
-                .execute(values[position]);
+        Picasso.with(context) //Context
+                .load(values[position])
+                .resize(600,400)
+                .error(0)
+                .into((ImageView) rowView.findViewById(R.id.picture));
+        // new ImageTask((ImageView) rowView.findViewById(R.id.picture))
+               // .execute(values[position]);
 
         return rowView;
     }

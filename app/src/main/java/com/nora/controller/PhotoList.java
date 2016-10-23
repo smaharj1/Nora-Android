@@ -51,7 +51,7 @@ public class PhotoList extends AppCompatActivity {
          */
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://f7b48076.ngrok.io/getUserData";
+        String url = " http://f9ae9b04.ngrok.io/getUserData";
 
         //final String[] returned={""};
         final String[] collection = {""};
@@ -74,12 +74,12 @@ public class PhotoList extends AppCompatActivity {
                         for (int i = 0; i < images.size(); i++) {
 
                             imgs[i] = images.get(i).substring(1,images.get(i).length()-1);
-//                            Log.v("THIS: ", imgs[i]);
+                           Log.v("THIS: ", imgs[i]);
                         }
 
                         ListView photoListView = (ListView) findViewById(R.id.photoList);
 
-                        String[] oo = {"http://compass.xbox.com/assets/23/0d/230dc52a-8f0e-40bf-bbd1-c51fdb8371e3.png?n=Homepage-360-UA_Upgrade-big_1056x594.png", "https://pbs.twimg.com/profile_images/515112446898368512/oQSyacEo.jpeg","https://pbs.twimg.com/profile_images/515112446898368512/oQSyacEo.jpeg","https://pbs.twimg.com/profile_images/515112446898368512/oQSyacEo.jpeg"};
+                        String[] oo = {"http://compass.xbox.com/assets/23./0d/230dc52a-8f0e-40bf-bbd1-c51fdb8371e3.png?n=Homepage-360-UA_Upgrade-big_1056x594.png", "https://pbs.twimg.com/profile_images/515112446898368512/oQSyacEo.jpeg","https://pbs.twimg.com/profile_images/515112446898368512/oQSyacEo.jpeg","https://pbs.twimg.com/profile_images/515112446898368512/oQSyacEo.jpeg"};
                         // This string array shows how many pictures to put.
                         photoListView.setAdapter(new MySimpleArrayAdapter(getApplicationContext(), imgs));
 
