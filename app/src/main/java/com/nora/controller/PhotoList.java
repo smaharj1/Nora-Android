@@ -70,6 +70,7 @@ public class PhotoList extends AppCompatActivity {
 
 
                         ArrayList<String> images = parse(res);
+                        if(images == null) return;
                         //Toast.makeText(getApplicationContext(), images, Toast.LENGTH_LONG);
 
                         // Testing
@@ -119,6 +120,7 @@ public class PhotoList extends AppCompatActivity {
         JsonArray jarray = jobject.getAsJsonArray("items");
 
         ArrayList<String> result = new ArrayList<>();
+        if(result.isEmpty()) return null;
         for (int i = 0; i < jarray.size(); i++) {
             jobject = jarray.get(i).getAsJsonObject();
             result.add(jobject.get("image").toString());
