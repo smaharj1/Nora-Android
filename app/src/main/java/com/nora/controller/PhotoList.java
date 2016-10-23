@@ -3,6 +3,7 @@ package com.nora.controller;
 import org.json.*;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -32,6 +34,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.nora.R;
+import com.nora.model.AnalyticActivity;
 import com.nora.model.MySimpleArrayAdapter;
 
 import java.lang.reflect.Array;
@@ -70,11 +73,11 @@ public class PhotoList extends AppCompatActivity {
                         //Toast.makeText(getApplicationContext(), images, Toast.LENGTH_LONG);
 
                         // Testing
-                        String[] imgs = new String[images.size()];
+                        final String[] imgs = new String[images.size()];
                         for (int i = 0; i < images.size(); i++) {
 
                             imgs[i] = images.get(i).substring(1,images.get(i).length()-1);
-                           Log.v("THIS: ", imgs[i]);
+                            Log.v("THIS: ", imgs[i]);
                         }
 
                         ListView photoListView = (ListView) findViewById(R.id.photoList);
@@ -82,6 +85,17 @@ public class PhotoList extends AppCompatActivity {
                         String[] oo = {"http://compass.xbox.com/assets/23./0d/230dc52a-8f0e-40bf-bbd1-c51fdb8371e3.png?n=Homepage-360-UA_Upgrade-big_1056x594.png", "https://pbs.twimg.com/profile_images/515112446898368512/oQSyacEo.jpeg","https://pbs.twimg.com/profile_images/515112446898368512/oQSyacEo.jpeg","https://pbs.twimg.com/profile_images/515112446898368512/oQSyacEo.jpeg"};
                         // This string array shows how many pictures to put.
                         photoListView.setAdapter(new MySimpleArrayAdapter(getApplicationContext(), imgs));
+
+                        // Set on click listener
+                        photoListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            public void onItemClick(AdapterView parent, View v, int position, long id){
+                                Intent newIntent = new Intent(getApplicationContext(), AnalyticActivity.class);
+                                newIntent.putExtra("url", imgs[position]);
+
+                                startActivity(newIntent);
+                            }
+                        });
+
 
                     }
                 }, new Response.ErrorListener() {
