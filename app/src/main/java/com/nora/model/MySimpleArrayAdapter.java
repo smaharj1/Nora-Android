@@ -57,23 +57,6 @@ public class MySimpleArrayAdapter extends ArrayAdapter<String> {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View rowView = inflater.inflate(R.layout.row_image, parent, false);
-        //TextView textView = (TextView) rowView.findViewById(R.id.label);
-        //ImageView imageView = (ImageView) rowView.findViewById(R.id.picture);
-        //textView.setText(values[position]);
-        // change the icon for Windows and iPhone
-        //String s = values[position];
-        //if (s.startsWith("iPhone")) {
-
-
-//        WebView webView = (WebView) rowView.findViewById(R.id.picture);
-//        webView.setWebViewClient(new WebViewClient() {
-//            @Override
-//            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-//                view.loadUrl(url);
-//                return true;
-//            }
-//        });
-//        webView.loadUrl("http://www.google.com");
 
         final ImageView v = (ImageView) rowView.findViewById(R.id.picture);
         RequestQueue queue = Volley.newRequestQueue(context);
@@ -112,31 +95,8 @@ public class MySimpleArrayAdapter extends ArrayAdapter<String> {
         queue.add(request);
 
 
-
-        //imageView.setImageResource(R.mipmap.go);
-//        Picasso.with(context) //Context
-//                .load(values[position])
-//                .resize(600,400)
-//                .error(0)
-//                .into((ImageView) rowView.findViewById(R.id.picture));
-        // new ImageTask((ImageView) rowView.findViewById(R.id.picture))
-               // .execute(values[position]);
-
         return rowView;
     }
 
-    public ArrayList<String> parse(String jsonLine) {
-        Log.v("hello", jsonLine+"");
-//        JsonElement jelement = new JsonParser().parse(jsonLine);
-//        JsonObject jobject = jelement.getAsJsonObject();
-//        //jobject = jobject.getAsJsonObject("items");
-//        JsonArray jarray = jobject.getAsJsonArray("items");
-//
-//        ArrayList<String> result = new ArrayList<>();
-//        for (int i = 0; i < jarray.size(); i++) {
-//            jobject = jarray.get(i).getAsJsonObject();
-//            result.add(jobject.get("image").toString());
-//        }
-        return new ArrayList<>();
-    }
+
 }
