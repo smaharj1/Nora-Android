@@ -36,6 +36,7 @@ import com.google.gson.JsonParser;
 import com.nora.R;
 import com.nora.model.AnalyticActivity;
 import com.nora.model.MySimpleArrayAdapter;
+import com.nora.model.RequestURL;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ import java.util.List;
 import java.util.Map;
 
 public class PhotoList extends AppCompatActivity {
+    RequestQueue queue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +55,9 @@ public class PhotoList extends AppCompatActivity {
          * Requesting the database for the image starts here.
          */
         // Instantiate the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://cbf1bcba.ngrok.io/getUserData";
+        queue = Volley.newRequestQueue(this);
+
+        String url = RequestURL.URL;
 
         //final String[] returned={""};
         final String[] collection = {""};
