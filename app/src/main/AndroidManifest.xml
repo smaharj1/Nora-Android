@@ -6,6 +6,10 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
     <permission
         android:name="android.permission.BLUETOOTH"
         android:label="BLUETOOTH" />
@@ -26,15 +30,21 @@
         <activity android:name=".model.AnalyticActivity" />
         <activity
             android:name=".controller.LoginActivity"
-            android:label="@string/title_activity_login">
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.SignupActivity" />
-        <activity android:name=".controller.IntroPageActivity"></activity>
+        <activity
+            android:name=".controller.SignupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".controller.IntroPageActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".controller.ImageRecordActivity"></activity>
     </application>
 
 </manifest>

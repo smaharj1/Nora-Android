@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_intro_page"
     android:layout_width="match_parent"
@@ -41,5 +47,18 @@
         android:layout_height="wrap_content"
         android:id="@+id/button"
         android:background="@layout/standard_button"
-        android:textColor="?android:attr/textColorTertiary" />
+        android:textColor="?android:attr/textColorTertiary"
+        android:onClick="goToWishlist" />
+
+    <Button
+        android:text="Add New Photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:background="@layout/standard_button"
+        android:textColor="?android:attr/textColorTertiary"
+        android:onClick="addPhoto"
+        android:layout_marginTop="10sp" />
+
 </LinearLayout>
+</ScrollView>
