@@ -2,16 +2,25 @@ package com.nora.controller;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.nora.R;
+import com.nora.model.FileHandler;
 import com.nora.model.UserSharedPreferences;
 
+import java.io.File;
+import java.io.IOException;
+
 import butterknife.InjectView;
+
+import static com.nora.model.FileHandler.createImageFile;
 
 public class IntroPageActivity extends AppCompatActivity {
 
@@ -37,7 +46,9 @@ public class IntroPageActivity extends AppCompatActivity {
      * @param view
      */
     public void addPhoto(View view) {
-        startCamera();
+        //startCamera();
+
+        dispatchTakePictureIntent();
     }
 
     /**
@@ -47,6 +58,32 @@ public class IntroPageActivity extends AppCompatActivity {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+    /**
+     * Takes the picture and stores it locally and externally.
+     */
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Ensure that there's a camera activity to handle the intent
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = FileHandler.createImageFile();
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+                Log.v("FILE ERROR", "The file could not be created. ");
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(this,
+                        "com.example.android.fileprovider",
+                        photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+            }
         }
     }
 
