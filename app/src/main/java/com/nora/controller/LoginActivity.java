@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 
 import com.nora.R;
+import com.nora.model.UserSharedPreferences;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -29,6 +30,13 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Checks if the user has already signed in the app.
+        if (UserSharedPreferences.getUserID(getApplicationContext()).length() != 0 ) {
+            // If user is logged in, then just redirect the user to main page.
+            onLoginSuccess();
+        }
+
         setContentView(R.layout.activity_login);
         ButterKnife.inject(this);
 
@@ -108,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent newIntent = new Intent(getApplicationContext(), IntroPageActivity.class);
         startActivity(newIntent);
 
-        //finish();
+        finish();
     }
 
     public void onLoginFailed() {

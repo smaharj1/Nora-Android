@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.nora.R;
+import com.nora.model.UserSharedPreferences;
 
 import butterknife.InjectView;
 
@@ -68,4 +69,19 @@ public class IntroPageActivity extends AppCompatActivity {
             startActivity(newIntent);
         }
     }
+
+    /**
+     * Event handler for logging out of the application.
+     * @param view
+     */
+    public void performLogout(View view) {
+        UserSharedPreferences.clearUserName(getApplicationContext());
+
+        Intent loginPage = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(loginPage);
+
+        finish();
+
+    }
+
 }
