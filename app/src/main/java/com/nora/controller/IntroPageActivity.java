@@ -76,11 +76,13 @@ public class IntroPageActivity extends AppCompatActivity {
                 // Error occurred while creating the File
                 Log.v("FILE ERROR", "The file could not be created. ");
             }
+
             // Continue only if the File was successfully created
             if (photoFile != null) {
                 Uri photoURI = FileProvider.getUriForFile(this,
                         "com.example.android.fileprovider",
                         photoFile);
+
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
             }
@@ -95,7 +97,7 @@ public class IntroPageActivity extends AppCompatActivity {
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        System.out.println("HEYY: Image being received" );
+        // System.out.println("HEYY: Image being received" );
 
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
