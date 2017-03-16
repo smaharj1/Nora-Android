@@ -137,7 +137,7 @@ public class PhotoList extends AppCompatActivity {
         for (int i = 0; i < imageURLs.size(); i++) {
             images[i] = new ImageView(getApplicationContext());
             images[i].setId(400 + i);
-            images[i].setBackgroundResource(R.mipmap.go);
+            //images[i].setBackgroundResource(R.mipmap.go);
         }
 
 

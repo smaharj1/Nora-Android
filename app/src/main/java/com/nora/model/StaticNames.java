@@ -5,7 +5,7 @@ package com.nora.model;
  */
 
 public class StaticNames {
-    public static final String USER_ID = "userid";
+    public static final String USER_ID = "id";
     public static final String HEADER_USER_ID = "mongoid";
 
     private StaticNames() {

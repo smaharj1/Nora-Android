@@ -155,8 +155,6 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
                         System.out.println("Couldn't feed request from the server");
-
-
                     }
                 }){
             /**

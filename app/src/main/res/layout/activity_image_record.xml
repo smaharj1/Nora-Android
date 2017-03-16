@@ -24,7 +24,7 @@
     <ImageView
         android:layout_width="300dp"
         android:layout_height="400dp"
-        app:srcCompat="@mipmap/go"
+        app:srcCompat="@drawable/google"
         android:layout_marginTop="65dp"
         android:id="@+id/images"
         android:layout_below="@+id/textView"
