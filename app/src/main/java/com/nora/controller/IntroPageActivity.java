@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
+import android.widget.EditText;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -61,6 +62,18 @@ public class IntroPageActivity extends AppCompatActivity {
 
         startActivity(wishlistIntent);
 
+    }
+
+    public void search(View view) {
+        Intent resultIntent = new Intent(getApplicationContext(), ResultActivity.class);
+        resultIntent.putExtra("type", "search");
+
+        EditText searchTerm = (EditText) findViewById(R.id.input_search);
+
+        resultIntent.putExtra("term", searchTerm.getText().toString());
+        resultIntent.putExtra(StaticNames.USER_ID, userID);
+
+        startActivity(resultIntent);
     }
 
     /**
@@ -141,6 +154,7 @@ public class IntroPageActivity extends AppCompatActivity {
                         deleteExistingPhotos();
 
                         JsonArray pArray = jobject.get("photos").getAsJsonArray();
+                        int size = pArray.size();
 
                         for (int i =0; i < pArray.size(); i++) {
                             JsonObject object = pArray.get(i).getAsJsonObject();

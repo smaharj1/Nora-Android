@@ -59,7 +59,7 @@
                 android:layout_marginBottom="140dp"
                 android:layout_marginTop="10sp"
                 android:background="@layout/standard_button"
-                android:onClick="addPhoto"
+                android:onClick="search"
                 android:text="Search"
                 android:textColor="?android:attr/textColorTertiary" />
 

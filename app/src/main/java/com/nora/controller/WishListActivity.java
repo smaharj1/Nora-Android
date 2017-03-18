@@ -47,10 +47,6 @@ public class WishListActivity extends AppCompatActivity {
 
         for (File file : mainDir.listFiles()) {
             if (file.getName().startsWith("nora")) {
-                //Bitmap tempImage = BitmapFactory.decodeFile(file.getAbsolutePath());
-
-                //imagesLoc.add(tempImage);
-
                 imagesLoc.add(file);
             }
         }
@@ -67,7 +63,9 @@ public class WishListActivity extends AppCompatActivity {
         photoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id){
                 Intent newIntent = new Intent(getApplicationContext(), ResultActivity.class);
-                newIntent.putExtra("imageFile", imagesArr[position]);
+                String filename = imagesArr[position].getAbsolutePath();
+                newIntent.putExtra("imageFile", filename);
+                newIntent.putExtra(StaticNames.USER_ID, userID);
 
                 startActivity(newIntent);
             }
