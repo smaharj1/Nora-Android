@@ -73,33 +73,37 @@ public class ImageRecordActivity extends AppCompatActivity {
             fileDir = storageDir.getAbsolutePath();
             File newFile = new File(fileDir+"/"+imageFileName+".jpg");
 
-            //Convert bitmap to byte array
-            Bitmap bitmap = bm;
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 0 , bos);
-            byte[] bitmapdata = bos.toByteArray();
-
-            //write the bytes in file
-            FileOutputStream fos = null;
-            try {
-                fos = new FileOutputStream(newFile);
-                fos.write(bitmapdata);
-                fos.flush();
-                fos.close();
-                //System.out.println("File stored");
-                if (newFile.exists()) {
-                    System.out.println("New file created: " + newFile.getName());
-                }
-                else {
-                    System.out.println("New file wasn't created");
-                }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            writeToFile(newFile, bm);
 
             storeInServer(bm, imageFileName);
+        }
+    }
+
+    public static void writeToFile(File newFile, Bitmap bitmap) {
+        //Convert bitmap to byte array
+        //Bitmap bitmap = bm;
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 0 , bos);
+        byte[] bitmapdata = bos.toByteArray();
+
+        //write the bytes in file
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(newFile);
+            fos.write(bitmapdata);
+            fos.flush();
+            fos.close();
+            //System.out.println("File stored");
+            if (newFile.exists()) {
+                System.out.println("New file created: " + newFile.getName());
+            }
+            else {
+                System.out.println("New file wasn't created");
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -109,11 +113,6 @@ public class ImageRecordActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String res) {
-                        // No response needed for this.
-                        JsonElement jsonElement = new JsonParser().parse(res);
-                        JsonObject jobject = jsonElement.getAsJsonObject();
-                        //jobject = jobject.getAsJsonObject("items");
-
 
                     }
                 },

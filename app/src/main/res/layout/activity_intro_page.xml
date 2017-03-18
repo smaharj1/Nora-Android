@@ -63,6 +63,16 @@
                 android:text="Search"
                 android:textColor="?android:attr/textColorTertiary" />
 
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:onClick="refreshImagesFromServer"
+                android:text="Refresh images"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
             <Button
                 android:text="Wishlist"
                 android:layout_width="match_parent"
