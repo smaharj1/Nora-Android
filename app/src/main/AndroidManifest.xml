@@ -28,7 +28,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
-
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.nora.fileprovider"
@@ -36,7 +35,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths" />
         </provider>
 
         <activity android:name=".controller.PhotoList" />
@@ -58,7 +57,8 @@
             android:name=".controller.IntroPageActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".controller.ImageRecordActivity" />
-        <activity android:name=".controller.WishListActivity"></activity>
+        <activity android:name=".controller.WishListActivity" />
+        <activity android:name=".controller.ResultActivity"></activity>
     </application>
 
 </manifest>

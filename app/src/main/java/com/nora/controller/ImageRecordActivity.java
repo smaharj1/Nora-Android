@@ -71,7 +71,7 @@ public class ImageRecordActivity extends AppCompatActivity {
             File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
 
             fileDir = storageDir.getAbsolutePath();
-            File newFile = new File(fileDir+imageFileName+".jpg");
+            File newFile = new File(fileDir+"/"+imageFileName+".jpg");
 
             //Convert bitmap to byte array
             Bitmap bitmap = bm;
@@ -88,10 +88,10 @@ public class ImageRecordActivity extends AppCompatActivity {
                 fos.close();
                 //System.out.println("File stored");
                 if (newFile.exists()) {
-                    System.out.println("New file exists");
+                    System.out.println("New file created: " + newFile.getName());
                 }
                 else {
-                    System.out.println("New file doesn't exists");
+                    System.out.println("New file wasn't created");
                 }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
