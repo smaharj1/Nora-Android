@@ -5,5 +5,5 @@ package com.nora.model;
  */
 
 public class RequestURL {
-    public static String URL = "https://a305efd8.ngrok.io/";
+    public static String URL = "http://c117e8ab.ngrok.io/";
 }
