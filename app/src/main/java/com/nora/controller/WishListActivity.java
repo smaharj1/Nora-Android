@@ -65,6 +65,7 @@ public class WishListActivity extends AppCompatActivity {
                 Intent newIntent = new Intent(getApplicationContext(), ResultActivity.class);
                 String filename = imagesArr[position].getAbsolutePath();
                 newIntent.putExtra("imageFile", filename);
+                newIntent.putExtra("type","photoSearch");
                 newIntent.putExtra(StaticNames.USER_ID, userID);
 
                 startActivity(newIntent);

@@ -49,6 +49,8 @@ public class IntroPageActivity extends AppCompatActivity {
         if (!extraMessage.isEmpty()) {
             userID = extraMessage;
         }
+
+        deleteExistingPhotos();
     }
 
     /**
@@ -167,6 +169,7 @@ public class IntroPageActivity extends AppCompatActivity {
                             File newFile = new File(path);
 
                             Bitmap image = decodeImage(object.get("image").getAsString());
+
 
                             ImageRecordActivity.writeToFile(newFile, image);
 

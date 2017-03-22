@@ -83,7 +83,7 @@ public class ImageRecordActivity extends AppCompatActivity {
         //Convert bitmap to byte array
         //Bitmap bitmap = bm;
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100 , bos);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100 , bos);
         byte[] bitmapdata = bos.toByteArray();
 
         //write the bytes in file
