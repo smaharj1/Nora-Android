@@ -50,7 +50,7 @@ public class IntroPageActivity extends AppCompatActivity {
             userID = extraMessage;
         }
 
-        deleteExistingPhotos();
+        //deleteExistingPhotos();
     }
 
     /**
